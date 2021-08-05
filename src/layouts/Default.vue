@@ -21,7 +21,6 @@ query {
 </static-query>
 
 <style>
-@import '/static/css/variables.css';
 
 /* CSS reset */
 html, body, div, span, applet, object, iframe,

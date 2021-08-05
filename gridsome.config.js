@@ -6,5 +6,14 @@
 
 module.exports = {
   siteName: 'Gridsome',
-  plugins: []
+  plugins: [],
+  css: {
+    loaderOptions: {
+      scss: {
+        additionalData : `
+          @import "./src/assets/style/_variables.scss";
+        `
+      }
+    }
+  }
 }
