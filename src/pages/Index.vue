@@ -4,12 +4,28 @@
       <div class="sun" />
     </div>
     <div class="sea">
-      <vue-glide>
+      <vue-glide
+          class="glide-container container"
+          :per-view="5"
+          :peek="{
+            before: 0,
+            after: 60
+          }"
+      >
         <vue-glide-slide
             v-for="tech in knownTechs"
             :key="tech"
         >
-          <div class="slide-content">{{tech}}</div>
+          <div class="slide-content">
+            <img :src="`/img/${tech}_logo.svg`"
+                 :alt="`${tech} logo`"
+                 width="105"
+                 height="auto"
+            />
+            <p>
+              {{tech}}
+            </p>
+          </div>
         </vue-glide-slide>
       </vue-glide>
     </div>
@@ -31,7 +47,10 @@ export default {
     return {
       knownTechs: [
         'Vue.js',
-        'React.js',
+        'React',
+        'Symfony',
+        'Symfony',
+        'Symfony',
         'Symfony'
       ]
     }
@@ -42,60 +61,12 @@ export default {
 <style>
 @import '~vue-glide-js/dist/vue-glide.css';
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-body {
-  line-height: 1;
-}
-ol, ul {
-  list-style: none;
-}
-blockquote, q {
-  quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-body {
-  font-family: Roboto, Poppins, Arial, sans-serif;
-}
-
 .body-gradient {
   display: flex;
   justify-content: center;
   align-items: flex-end;
   height: 1611px;
-  background: linear-gradient(180deg, #3C5882 0%, #FFEDCB 50%, #FFB292 100%);
+  background: linear-gradient(180deg, #3C5882 0%, #FFEDCB 50%, var(--dark-blue) 100%);
 }
 
 .sun {
@@ -109,18 +80,37 @@ body {
 }
 
 .sea {
-  height: 357px;
+  height: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
   /* sun to sea gradient */
 
   background: linear-gradient(180deg, #FFB292 0%, #3C5882 20%);
 }
 
+.glide-container {
+  height: 80%;
+  display: flex;
+  align-items: center;
+}
+
 .slide-content {
-  width: 250px;
-  height: 230px;
+  width: 180px;
+  height: 160px;
   border-radius: 24px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
   /* sand */
   background: #FFEDCB;
+}
+
+.container {
+  width: 60%;
+  margin: 0 auto;
 }
 </style>
