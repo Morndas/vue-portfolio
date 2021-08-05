@@ -7,4 +7,10 @@ export default function (Vue, { router, head, isClient }) {
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
   Vue.config.devtools = true
+
+  // TODO: change robots to index, follow once production ready
+  head.meta.push({
+    name: 'robots',
+    content: 'noindex, nofollow'
+  })
 }
