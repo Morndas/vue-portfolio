@@ -19,8 +19,8 @@
           <div class="slide-content">
             <img :src="`/img/${tech}_logo.svg`"
                  :alt="`${tech} logo`"
-                 width="105"
-                 height="auto"
+                 width="auto"
+                 height="90"
             />
             <p>
               {{tech}}
@@ -50,23 +50,29 @@ export default {
         'React',
         'Symfony',
         'Symfony',
-        'Symfony',
-        'Symfony'
+        'Vue.js',
+        'React'
       ]
     }
   }
 }
 </script>
 
-<style>
+<style lang="scss">
 @import '~vue-glide-js/dist/vue-glide.css';
+
+$dark-blue: #29456F;
+$blue: #3C5882;
+$orange: #FFB292;
+$sand: #FFEDCB;
+
 
 .body-gradient {
   display: flex;
   justify-content: center;
   align-items: flex-end;
   height: 1611px;
-  background: linear-gradient(180deg, #3C5882 0%, #FFEDCB 50%, var(--dark-blue) 100%);
+  background: linear-gradient(180deg, $blue 0%, $sand 50%, $orange 100%);
 }
 
 .sun {
@@ -76,7 +82,7 @@ export default {
   border-top-right-radius: 530px;
   /* sunrise gradient */
 
-  background: linear-gradient(180deg, #FFEDCB 0%, #FFB292 100%);
+  background: linear-gradient(180deg, $sand 0%, $orange 100%);
 }
 
 .sea {
@@ -86,13 +92,14 @@ export default {
   align-items: flex-end;
   /* sun to sea gradient */
 
-  background: linear-gradient(180deg, #FFB292 0%, #3C5882 20%);
+  background: linear-gradient(180deg, $orange 0%, $blue 20%);
 }
 
 .glide-container {
   height: 80%;
   display: flex;
   align-items: center;
+  border-right: 2px solid $dark-blue;
 }
 
 .slide-content {
@@ -106,11 +113,11 @@ export default {
   flex-direction: column;
 
   /* sand */
-  background: #FFEDCB;
+  background: $sand;
 }
 
 .container {
-  width: 60%;
+  width: 1140px;
   margin: 0 auto;
 }
 </style>
