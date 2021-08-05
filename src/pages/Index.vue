@@ -19,10 +19,11 @@
           <div class="slide-content">
             <img :src="`/img/${tech}_logo.svg`"
                  :alt="`${tech} logo`"
+                 class="tech-logo"
                  width="auto"
-                 height="90"
+                 height="85"
             />
-            <p>
+            <p class="tech-title">
               {{tech}}
             </p>
           </div>
@@ -61,12 +62,6 @@ export default {
 <style lang="scss">
 @import '~vue-glide-js/dist/vue-glide.css';
 
-$dark-blue: #29456F;
-$blue: #3C5882;
-$orange: #FFB292;
-$sand: #FFEDCB;
-
-
 .body-gradient {
   display: flex;
   justify-content: center;
@@ -75,11 +70,14 @@ $sand: #FFEDCB;
   background: linear-gradient(180deg, $blue 0%, $sand 50%, $orange 100%);
 }
 
+
 .sun {
-  width: 530px;
-  height: 265px;
-  border-top-left-radius: 530px;
-  border-top-right-radius: 530px;
+  $sun-height: 225px;
+
+  width: $sun-height * 2;
+  height: $sun-height;
+  border-top-left-radius: $sun-height * 2;
+  border-top-right-radius: $sun-height * 2;
   /* sunrise gradient */
 
   background: linear-gradient(180deg, $sand 0%, $orange 100%);
@@ -99,7 +97,16 @@ $sand: #FFEDCB;
   height: 80%;
   display: flex;
   align-items: center;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.glide-container:after {
   border-right: 2px solid $dark-blue;
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 1px;
+  height: 88%;
 }
 
 .slide-content {
@@ -114,6 +121,18 @@ $sand: #FFEDCB;
 
   /* sand */
   background: $sand;
+}
+
+.tech-logo {
+  filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.25));
+}
+
+.tech-title {
+  font-family: Roboto,serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: $dark-blue;
+  margin: 12px 0 0;
 }
 
 .container {
