@@ -1,14 +1,11 @@
 <template>
   <Layout>
     <div class="hero container">
-      <h1 class="name-heading">
-        <span class="html-tag"><</span>
-        Sébastien
-        <span class="html-tag">></span>
-        <span class="html-tag"><</span>
-        <br>Seigneur
-        <span class="html-tag"> /></span>
-      </h1>
+      <div>
+        {{/* Sébastien Seigneur */}}
+        <NameTag tag-name="h1" font-size="50px" />
+        <p class="subtitle">Développeur web</p>
+      </div>
     </div>
     <div class="body-gradient">
       <div class="sun" />
@@ -45,12 +42,14 @@
 
 <script>
 import { Glide, GlideSlide } from 'vue-glide-js'
+import NameTag from "../components/NameTag";
 
 export default {
   metaInfo: {
     title: 'Hello, world!',
   },
   components: {
+    NameTag,
     [Glide.name]: Glide,
     [GlideSlide.name]: GlideSlide
   },
@@ -73,7 +72,7 @@ export default {
 @import '~vue-glide-js/dist/vue-glide.css';
 
 .hero {
-  background-color: rgba(0, 0, 0, 0.57);
+  // background-color: rgba(0, 0, 0, 0.57);
   height: 400px;
   position: absolute;
   top:0;
@@ -85,9 +84,11 @@ export default {
   align-items: center;
   justify-content: space-between;
 
-  .name-heading {
-    color: white;
-    font-family: Poppins;
+  .subtitle {
+    font-family: Poppins,serif;
+    font-weight: 400;
+    font-size: 30px;
+    color: $dark-blue + BF; // 75% transparency
   }
 }
 
@@ -98,7 +99,6 @@ export default {
   height: 1611px;
   background: linear-gradient(180deg, $blue 0%, $sand 50%, $orange 100%);
 }
-
 
 .sun {
   $sun-height: 225px;
