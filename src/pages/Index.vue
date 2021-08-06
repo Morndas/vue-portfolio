@@ -1,5 +1,15 @@
 <template>
   <Layout>
+    <div class="hero container">
+      <h1 class="name-heading">
+        <span class="html-tag"><</span>
+        Sébastien
+        <span class="html-tag">></span>
+        <span class="html-tag"><</span>
+        <br>Seigneur
+        <span class="html-tag"> /></span>
+      </h1>
+    </div>
     <div class="body-gradient">
       <div class="sun" />
     </div>
@@ -62,6 +72,25 @@ export default {
 <style lang="scss">
 @import '~vue-glide-js/dist/vue-glide.css';
 
+.hero {
+  background-color: rgba(0, 0, 0, 0.57);
+  height: 400px;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .name-heading {
+    color: white;
+    font-family: Poppins;
+  }
+}
+
 .body-gradient {
   display: flex;
   justify-content: center;
@@ -107,6 +136,7 @@ export default {
   right: 0;
   width: 1px;
   height: 88%;
+  margin: 0 auto;
 }
 
 .slide-content {
@@ -137,6 +167,5 @@ export default {
 
 .container {
   width: 1140px;
-  margin: 0 auto;
 }
 </style>
