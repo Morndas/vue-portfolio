@@ -22,6 +22,7 @@ query {
 
 <style>
 @import "~@fontsource/roboto/latin.css";
+@import "~@fontsource/poppins/latin.css";
 
 /* CSS reset */
 html, body, div, span, applet, object, iframe,
