@@ -6,6 +6,7 @@
         <NameTag tag-name="h1" font-size="50px" />
         <p class="subtitle">Développeur web</p>
       </div>
+      <img src="/img/code_thinking.svg" class="code-thinking" alt="code thinking" />
     </div>
     <div class="body-gradient">
       <div class="sun" />
@@ -68,7 +69,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '~vue-glide-js/dist/vue-glide.css';
 
 .hero {
@@ -88,7 +89,12 @@ export default {
     font-family: Poppins,serif;
     font-weight: 400;
     font-size: 30px;
+    margin: 30px 0 0 75px;
     color: $dark-blue + BF; // 75% transparency
+  }
+
+  .code-thinking {
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   }
 }
 
@@ -108,7 +114,6 @@ export default {
   border-top-left-radius: $sun-height * 2;
   border-top-right-radius: $sun-height * 2;
   /* sunrise gradient */
-
   background: linear-gradient(180deg, $sand 0%, $orange 100%);
 }
 
@@ -118,54 +123,52 @@ export default {
   justify-content: center;
   align-items: flex-end;
   /* sun to sea gradient */
+  $sea-gradient-start: 19%;
+  background: linear-gradient(180deg, $orange 0%, $blue $sea-gradient-start);
 
-  background: linear-gradient(180deg, $orange 0%, $blue 20%);
-}
+  /* Glide styles */
+  .glide-container {
+    height: 100% - $sea-gradient-start;
+    display: flex;
+    align-items: center;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
-.glide-container {
-  height: 80%;
-  display: flex;
-  align-items: center;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
+    // right border styles
+    &:after {
+      border-right: 2px solid $dark-blue;
+      content: "";
+      position: absolute;
+      right: 0;
+      width: 1px;
+      height: 88%; // border height in %
+      margin: 0 auto;
+    }
 
-.glide-container:after {
-  border-right: 2px solid $dark-blue;
-  content: "";
-  position: absolute;
-  right: 0;
-  width: 1px;
-  height: 88%;
-  margin: 0 auto;
-}
+    .slide-content {
+      width: 180px;
+      height: 160px;
+      border-radius: 24px;
 
-.slide-content {
-  width: 180px;
-  height: 160px;
-  border-radius: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+      /* sand */
+      background: $sand;
 
-  /* sand */
-  background: $sand;
-}
+      .tech-logo {
+        filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.25));
+      }
 
-.tech-logo {
-  filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.25));
-}
-
-.tech-title {
-  font-family: Roboto,serif;
-  font-size: 18px;
-  font-weight: 500;
-  color: $dark-blue;
-  margin: 12px 0 0;
-}
-
-.container {
-  width: 1140px;
+      .tech-title {
+        font-family: Roboto,serif;
+        font-size: 18px;
+        font-weight: 500;
+        color: $dark-blue;
+        margin: 12px 0 0;
+      }
+    }
+  }
 }
 </style>
