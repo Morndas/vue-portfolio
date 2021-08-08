@@ -102,7 +102,7 @@ export default {
 
   .hero-arrow {
     position: absolute;
-    animation: MoveUpDown 1.5s linear infinite;
+    animation: MoveUpDown 2s linear infinite;
     bottom: 8%;
     cursor: pointer;
   }
