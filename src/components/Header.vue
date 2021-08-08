@@ -1,8 +1,8 @@
 <template>
   <header>
     <ul class="container">
-      <li><g-link href="#">Home</g-link></li>
-      <li><g-link href="#">A propos de moi</g-link></li>
+      <li><g-link to="/">Home</g-link></li>
+      <li><g-link to="/about/">A propos de moi</g-link></li>
       <li><g-link href="#">Mes projets</g-link></li>
       <li><g-link href="#">Contact</g-link></li>
     </ul>
@@ -22,6 +22,7 @@ header {
   height: 70px;
   width: 100%;
   background-color: #29456F;
+  z-index: 100;
 }
 
 ul {
