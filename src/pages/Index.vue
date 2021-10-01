@@ -2,10 +2,10 @@
   <Layout :pageSize="2" :position="this.position">
     <div class="hero container">
       <div class="hero-main">
-        {{/* Sébastien Seigneur */}}
         <div>
+          {{/* Sébastien Seigneur */}}
           <NameTag tag-name="h1" font-size="50px" />
-          <p class="subtitle">Développeur web</p>
+          <p class="subtitle">Développeur webb</p>
         </div>
         <img :src="'/img/code_thinking.svg'" class="code-thinking" />
       </div>
@@ -17,9 +17,12 @@
       <vue-glide
           class="glide-container container"
           :per-view="5"
-          :peek="{
-            before: 0,
-            after: 60
+          :options="{
+            bound: true,
+            peek:{
+              before: 0,
+              after: 60
+            }
           }"
       >
         <vue-glide-slide
@@ -151,13 +154,10 @@ export default {
     width: 180px;
     height: 160px;
     border-radius: 24px;
-
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
-    /* sand */
     background: $sand;
 
     .tech-logo {

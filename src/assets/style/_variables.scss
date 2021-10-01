@@ -4,3 +4,11 @@ $blue: #3C5882;
 $orange: #FFB292;
 $sand: #FFEDCB;
 $sea-gradient-start: 19%;
+
+:export {
+  dark-blue: $dark-blue;
+  blue: $blue;
+  orange: $orange;
+  sand: $sand;
+  sea-gradient-start: $sea-gradient-start;
+}

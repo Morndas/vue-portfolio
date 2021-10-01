@@ -22,6 +22,7 @@ query {
 
 <script>
 import Header from "../components/Header";
+import styleVars from "@/assets/style/_variables.scss";
 
 export default {
   components: {
@@ -41,12 +42,12 @@ export default {
     bodyStyles() {
       return {
         height: this.pageSize === 1 ? '72vh' : '170vh',
-        background: `linear-gradient(180deg, ${this.pageSize === 1 ? '#FFEDCB 0%' : '#3C5882 0%, #FFEDCB 50%'}, #FFB292 100%)`
+        background: `linear-gradient(180deg, ${this.pageSize === 1 ? `${styleVars.sand} 0%` : '#3C5882 0%, #FFEDCB 50%'}, #FFB292 100%)`
       }
     },
     sunStyles() {
       return {
-        transform: `translate(${this.position * 10}%)`
+        transform: `translate(${this.position * 10 * -1}%)`
       }
     }
   }
@@ -69,8 +70,9 @@ body {
 
 .body-gradient {
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 #sun {
