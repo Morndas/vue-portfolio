@@ -22,7 +22,7 @@ query {
 
 <script>
 import Header from "../components/Header";
-import styleVars from "@/assets/style/_variables.scss";
+// import styleVars from "@/assets/style/_variables.scss";
 
 export default {
   components: {
