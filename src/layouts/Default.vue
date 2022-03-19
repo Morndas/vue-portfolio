@@ -42,7 +42,7 @@ export default {
     bodyStyles() {
       return {
         height: this.pageSize === 1 ? '72vh' : '170vh',
-        background: `linear-gradient(180deg, ${this.pageSize === 1 ? `${styleVars.sand} 0%` : '#3C5882 0%, #FFEDCB 50%'}, #FFB292 100%)`
+        background: `linear-gradient(180deg, ${this.pageSize === 1 ? `#FFEDCB 0%` : '#3C5882 0%, #FFEDCB 50%'}, #FFB292 100%)`
       }
     },
     sunStyles() {
