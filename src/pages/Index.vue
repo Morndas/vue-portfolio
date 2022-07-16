@@ -5,7 +5,7 @@
         <div>
           {{/* Sébastien Seigneur */}}
           <NameTag tag-name="h1" font-size="50px" />
-          <p class="subtitle">Développeur webb</p>
+          <p class="subtitle">Développeur web</p>
         </div>
         <img :src="'/img/code_thinking.svg'" class="code-thinking" />
       </div>
