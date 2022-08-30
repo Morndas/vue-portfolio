@@ -1,49 +1,49 @@
 <template>
-  <Layout :pageSize="2" :position="this.position">
-    <div class="hero container">
-      <div class="hero-main">
-        <div>
-          {{/* Sébastien Seigneur */}}
-          <NameTag tag-name="h1" font-size="50px" />
-          <p class="subtitle">Développeur web</p>
-        </div>
-        <img :src="'/img/code_thinking.svg'" class="code-thinking" />
-      </div>
-      <div class="hero-arrow" @click="scrollSun">
-        <img :src="'/img/down_arrow.svg'" width="69" height="67">
-      </div>
-    </div>
+  <ContentLayout :pageSize="2" :position="this.position">
+<!--    <div class="hero container">-->
+<!--      <div class="hero-main">-->
+<!--        <div>-->
+<!--          {{/* Sébastien Seigneur */}}-->
+<!--          <NameTag tag-name="h1" font-size="50px" />-->
+<!--          <p class="subtitle">Développeur web</p>-->
+<!--        </div>-->
+<!--        <img :src="'/img/code_thinking.svg'" class="code-thinking" />-->
+<!--      </div>-->
+<!--      <div class="hero-arrow" @click="scrollSun">-->
+<!--        <img :src="'/img/down_arrow.svg'" width="69" height="67">-->
+<!--      </div>-->
+<!--    </div>-->
     <template v-slot:sea-body>
-      <vue-glide
-          class="glide-container container"
-          :per-view="5"
-          :options="{
-            bound: true,
-            peek:{
-              before: 0,
-              after: 60
-            }
-          }"
-      >
-        <vue-glide-slide
-            v-for="tech in knownTechs"
-            :key="tech"
-        >
-          <div class="slide-content">
-            <img :src="`/img/${tech}_logo.svg`"
-                 :alt="`${tech} logo`"
-                 class="tech-logo"
-                 width="auto"
-                 height="85"
-            />
-            <p class="tech-title">
-              {{tech}}
-            </p>
-          </div>
-        </vue-glide-slide>
-      </vue-glide>
+<!--      <vue-glide-->
+<!--          class="glide-container container"-->
+<!--          :per-view="5"-->
+<!--          :options="{-->
+<!--            bound: true,-->
+<!--            peek:{-->
+<!--              before: 0,-->
+<!--              after: 60-->
+<!--            }-->
+<!--          }"-->
+<!--      >-->
+<!--        <vue-glide-slide-->
+<!--            v-for="tech in knownTechs"-->
+<!--            :key="tech"-->
+<!--        >-->
+<!--          <div class="slide-content">-->
+<!--            <img :src="`/img/${tech}_logo.svg`"-->
+<!--                 :alt="`${tech} logo`"-->
+<!--                 class="tech-logo"-->
+<!--                 width="auto"-->
+<!--                 height="85"-->
+<!--            />-->
+<!--            <p class="tech-title">-->
+<!--              {{tech}}-->
+<!--            </p>-->
+<!--          </div>-->
+<!--        </vue-glide-slide>-->
+<!--      </vue-glide>-->
     </template>
-  </Layout>
+  </ContentLayout>
 </template>
 
 <script>
@@ -51,6 +51,7 @@ import { Glide, GlideSlide } from 'vue-glide-js'
 import NameTag from "../components/NameTag";
 
 export default {
+  name: 'Index',
   metaInfo: {
     title: 'Hello, world!',
   },

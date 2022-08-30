@@ -1,12 +1,13 @@
 <template>
-  <Layout :position="this.position">
+  <ContentLayout :position="this.position">
     <template v-slot:main-body>
     </template>
-  </Layout>
+  </ContentLayout>
 </template>
 
 <script>
 export default {
+  name: 'About',
   metaInfo: {
     title: 'A propos de moi'
   },

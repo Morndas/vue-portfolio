@@ -1,6 +1,5 @@
 <template>
-  <div>
-    <Header />
+  <div id="content">
     <slot />
     <div class="body-gradient" :style="bodyStyles">
       <slot name="main-body" />
@@ -25,6 +24,7 @@ import Header from "../components/Header";
 // import styleVars from "@/assets/style/_variables.scss";
 
 export default {
+  name: 'ContentLayout',
   components: {
     Header
   },
@@ -41,7 +41,7 @@ export default {
   computed: {
     bodyStyles() {
       return {
-        height: this.pageSize === 1 ? '72vh' : '170vh',
+        height: this.pageSize === 1 ? '72vh' : '172vh', // the sea part makes for the last 28vh
         background: `linear-gradient(180deg, ${this.pageSize === 1 ? `#FFEDCB 0%` : '#3C5882 0%, #FFEDCB 50%'}, #FFB292 100%)`
       }
     },
@@ -54,19 +54,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
-@import "../assets/style/reset.css";
-@import "~@fontsource/roboto/latin.css";
-@import "~@fontsource/poppins/latin.css";
-
-/* Global styles */
-body {
-  font-family: Roboto, Poppins, Arial, sans-serif;
-}
-
-.container {
-  width: 1140px !important;
-}
+<style lang="scss" scoped>
 
 .body-gradient {
   display: flex;
