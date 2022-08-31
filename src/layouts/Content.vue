@@ -64,12 +64,10 @@ export default {
 }
 
 #sun {
-  $sun-height: 225px;
-
-  width: $sun-height * 2;
-  height: $sun-height;
-  border-top-left-radius: $sun-height * 2;
-  border-top-right-radius: $sun-height * 2;
+  width: 60%;
+  max-width: 450px;
+  aspect-ratio: 2;
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
   /* sunrise gradient */
   background: linear-gradient(180deg, $sand 0%, $orange 100%);
 }
