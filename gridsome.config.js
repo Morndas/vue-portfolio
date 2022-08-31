@@ -6,6 +6,7 @@
 
 module.exports = {
   siteName: 'Gridsome',
+  siteDescription: 'Site web de Sébastien Seigneur',
   plugins: [],
   css: {
     loaderOptions: {
