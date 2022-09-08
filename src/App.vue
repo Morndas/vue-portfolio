@@ -1,9 +1,9 @@
 <template>
-  <MainLayout>
+  <MasterLayout>
     <transition name="fade" mode="out-in">
       <router-view />
     </Transition>
-  </MainLayout>
+  </MasterLayout>
 </template>
 
 <static-query>
@@ -16,12 +16,12 @@ query {
 </static-query>
 
 <script>
-import MainLayout from "./layouts/Main";
+import MasterLayout from "./layouts/Master";
 
 export default {
   name: 'App',
   components: {
-    MainLayout
+    MasterLayout
   },
   metaInfo() {
     return {

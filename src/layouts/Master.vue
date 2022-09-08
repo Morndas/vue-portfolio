@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="menu-toggle-container">
-      <button id="menu-toggle" class="menu-toggle" @click="toggleMenu">
+    <div class="menu-toggle-container mobile-only">
+      <button id="menu-toggle" class="menu-toggle" @click="toggleMenu()">
         <span class="menu-toggle-bar menu-toggle-bar--top"></span>
         <span class="menu-toggle-bar menu-toggle-bar--middle"></span>
         <span class="menu-toggle-bar menu-toggle-bar--bottom"></span>
@@ -19,14 +19,30 @@
 import Header from "../components/Header";
 
 export default {
-  name: 'MainLayout',
+  name: 'MasterLayout',
   components: {
     Header
+  },
+  data() {
+    return {
+      isMenuOpen: false
+    }
   },
   methods: {
     toggleMenu() {
       document.body.classList.toggle('menu-open')
+      this.isMenuOpen = !this.isMenuOpen
     }
+  },
+  created() {
+    this.$router.beforeEach((to, from, next) => {
+      // closes the menu if it is open (mobile only)
+      if (this.isMenuOpen) {
+        this.toggleMenu()
+      }
+      // add delay to close the menu before the route change animation
+      setTimeout(next, 150)
+    });
   }
 }
 </script>
@@ -57,11 +73,13 @@ export default {
     top: 0;
     right: 0;
     padding: 1.5rem;
+    filter: drop-shadow(0px 0px 3px black);
+    mix-blend-mode: luminosity;
 
     .menu-toggle {
       background: none;
       border: none;
-      transform: translate(0, -50%);
+      transform: translate(0, 0 /* -50% */);
       height: 26px;
       width: 29px;
 
@@ -76,13 +94,14 @@ export default {
         margin-top: -1px;
         right: 0;
         width: 100%;
-        height: 4px;
-        border-radius: 4px;
-        background-color: black;
+        height: 3px;
+        border-radius: 2px;
+        background-color: #f5f5f5;
         transition: all 0.3s ease;
 
         &.menu-toggle-bar--top {
           transform: translate(0, -8px);
+          width: 60%;
         }
 
         &.menu-toggle-bar--middle {
@@ -90,11 +109,14 @@ export default {
 
         &.menu-toggle-bar--bottom {
           transform: translate(0, 8px);
+          width: 60%;
+          margin-right: 40%;
         }
 
         .menu-open & {
           &.menu-toggle-bar--top {
             transform: translate(0, 0) rotate(45deg);
+            width: 100%;
           }
 
           &.menu-toggle-bar--middle {
@@ -103,6 +125,8 @@ export default {
 
           &.menu-toggle-bar--bottom {
             transform: translate(0, 0) rotate(-45deg);
+            width: 100%;
+            margin-right: unset;
           }
         }
       }
