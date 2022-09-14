@@ -1,12 +1,13 @@
 <template>
   <div id="content">
-    <slot />
-    <div class="body-gradient" :style="bodyStyles">
-      <slot name="main-body" />
+    <div class="body-gradient" :class="pageSizeClass">
+      <div class="main-content">
+        <slot name="main-content" />
+      </div>
       <div id="sun" :style="sunStyles" />
     </div>
     <div class="sea">
-      <slot name="sea-body" />
+      <slot name="sea-content" />
     </div>
   </div>
 </template>
@@ -39,11 +40,8 @@ export default {
     }
   },
   computed: {
-    bodyStyles() {
-      return {
-        height: this.pageSize === 1 ? '72vh' : '172vh', // the sea part makes for the last 28vh
-        background: `linear-gradient(180deg, ${this.pageSize === 1 ? `#FFEDCB 0%` : '#3C5882 0%, #FFEDCB 50%'}, #FFB292 100%)`
-      }
+    pageSizeClass() {
+      return (this.pageSize === 1 ? 'size-1' : 'size-2')
     },
     sunStyles() {
       return {
@@ -57,19 +55,35 @@ export default {
 <style lang="scss" scoped>
 
 .body-gradient {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-}
+  position: relative;
+  overflow: auto;
 
-#sun {
-  width: 60%;
-  max-width: 450px;
-  aspect-ratio: 2;
-  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-  /* sunrise gradient */
-  background: linear-gradient(180deg, $sand 0%, $orange 100%);
+  &.size-1 {
+    height: calc(72vh - 70px); // omits the size of the header, the sea part makes for the last 28vh
+    background: linear-gradient(180deg, $sand 0%, $orange 100%)
+  }
+
+  &.size-2 {
+    height: calc(172vh - 140px); // omits the size of the header twice
+    background: linear-gradient(180deg, $blue 0%, $sand 50%, $orange 100%)
+  }
+
+  .main-content {
+    position: relative;
+    z-index: 2; // content goes on top of the #sun
+  }
+
+  #sun {
+    position: absolute;
+    inset: auto 0 0;
+    margin: auto;
+    width: 60%;
+    max-width: 450px;
+    aspect-ratio: 2;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    /* sunrise gradient */
+    background: linear-gradient(180deg, $sand 0%, $orange 100%);
+  }
 }
 
 .sea {
@@ -79,6 +93,19 @@ export default {
   align-items: flex-end;
   /* sun to sea gradient */
   background: linear-gradient(180deg, $orange 0%, $blue $sea-gradient-start);
+}
+
+@media (max-width: $mobile-breakpoint) {
+  .body-gradient {
+    &.size-1 {
+      // used unquote to circumvent Sass compile error : 'Incompatible units'
+      height: unquote("max(72vh, 100%)");
+    }
+
+    &.size-2 {
+      height: unquote("max(172vh, 100%)");
+    }
+  }
 }
 
 </style>
