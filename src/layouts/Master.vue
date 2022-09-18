@@ -1,14 +1,19 @@
 <template>
   <div>
-    <div class="menu-toggle-container mobile-only">
-      <button id="menu-toggle" class="menu-toggle" @click="toggleMenu()">
-        <span class="menu-toggle-bar menu-toggle-bar--top"></span>
-        <span class="menu-toggle-bar menu-toggle-bar--middle"></span>
-        <span class="menu-toggle-bar menu-toggle-bar--bottom"></span>
+    <!-- MOBILE ONLY: toggle button inspired from https://codepen.io/james2doyle/pen/edNoPe -->
+    <div class="menu-toggle-container">
+      <button
+        id="menu-toggle"
+        class="menu-toggle"
+        @click="toggleMenu()"
+      >
+        <span class="menu-toggle-bar menu-toggle-bar--top" />
+        <span class="menu-toggle-bar menu-toggle-bar--middle" />
+        <span class="menu-toggle-bar menu-toggle-bar--bottom" />
       </button>
     </div>
 
-    <Header id="menu" />
+    <Header />
 
     <slot /> <!-- Here goes the Content from <router-view> in App.vue -->
 
@@ -28,12 +33,6 @@ export default {
       isMenuOpen: false
     }
   },
-  methods: {
-    toggleMenu() {
-      document.body.classList.toggle('menu-open')
-      this.isMenuOpen = !this.isMenuOpen
-    }
-  },
   created() {
     this.$router.beforeEach((to, from, next) => {
       // closes the menu if it is open (mobile only)
@@ -43,6 +42,12 @@ export default {
       // add delay to close the menu before the route change animation
       setTimeout(next, 150)
     });
+  },
+  methods: {
+    toggleMenu() {
+      document.body.classList.toggle('menu-open')
+      this.isMenuOpen = !this.isMenuOpen
+    }
   }
 }
 </script>
@@ -54,18 +59,6 @@ export default {
 }
 
 @media (max-width: $mobile-breakpoint) {
-  #menu {
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s 0.5s, opacity 0.5s linear;
-  }
-
-  .menu-open #menu {
-    visibility: visible;
-    opacity: 1;
-    transition: visibility 0s, opacity 0.5s linear;
-  }
-
   .menu-toggle-container {
     display: unset;
     z-index: 200; // placing it above header content (z-index: 100)

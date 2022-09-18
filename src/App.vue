@@ -47,7 +47,11 @@ export default {
 body {
   font-family: Roboto, Poppins, Arial, sans-serif !important;
   background-color: black;
-  overflow: overlay;
+  overflow: hidden overlay;
+
+  &.menu-open {
+    overflow: hidden;
+  }
 }
 
 .container {
