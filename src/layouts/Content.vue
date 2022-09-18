@@ -99,11 +99,15 @@ export default {
   .body-gradient {
     &.size-1 {
       // used unquote to circumvent Sass compile error : 'Incompatible units'
-      height: unquote("max(72vh, 100%)");
+      /* height: unquote("max(72vh, 100%)"); */ // somehow doesn't work, always pick 100%
+      min-height: 72vh;
+      height: 100%;
     }
 
     &.size-2 {
-      height: unquote("max(172vh, 100%)");
+      /* height: unquote("max(172vh, 100%)"); */
+      min-height: 172vh;
+      height: 100%;
     }
   }
 }
