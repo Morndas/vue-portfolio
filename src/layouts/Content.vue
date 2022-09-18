@@ -4,7 +4,9 @@
       <div class="main-content">
         <slot name="main-content" />
       </div>
-      <div id="sun" :style="sunStyles" />
+      <div class="sun-section" :style="sunStyles">
+        <div id="sun"/>
+      </div>
     </div>
     <div class="sea">
       <slot name="sea-content" />
@@ -22,21 +24,18 @@ query {
 
 <script>
 import Header from "../components/Header";
-// import styleVars from "@/assets/style/_variables.scss";
+import {PageOrderMixin} from "../mixins/PageOrderMixin.js"
 
 export default {
   name: 'ContentLayout',
   components: {
     Header
   },
+  mixins: [PageOrderMixin],
   props: {
     pageSize: {
       type: Number,
       default: 1
-    },
-    position: {
-      type: Number,
-      required: true
     }
   },
   computed: {
@@ -44,9 +43,9 @@ export default {
       return (this.pageSize === 1 ? 'size-1' : 'size-2')
     },
     sunStyles() {
-      return {
-        transform: `translate(${this.position * 10 * -1}%)`
-      }
+      return (this.pagePosition > 0) ?
+        {'padding-right': `${this.pagePosition * 5}%`} :
+        {'padding-left': `${this.pagePosition * 5}%`}
     }
   }
 }
@@ -56,7 +55,7 @@ export default {
 
 .body-gradient {
   position: relative;
-  overflow: auto;
+  overflow: hidden auto;
 
   &.size-1 {
     height: calc(72vh - 70px); // omits the size of the header, the sea part makes for the last 28vh
@@ -73,16 +72,19 @@ export default {
     z-index: 2; // content goes on top of the #sun
   }
 
-  #sun {
+  .sun-section {
     position: absolute;
     inset: auto 0 0;
-    margin: auto;
-    width: 60%;
-    max-width: 450px;
-    aspect-ratio: 2;
-    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-    /* sunrise gradient */
-    background: linear-gradient(180deg, $sand 0%, $orange 100%);
+
+    #sun {
+      margin: auto;
+      width: 60%;
+      max-width: 450px;
+      aspect-ratio: 2;
+      border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+      /* sunrise gradient */
+      background: linear-gradient(180deg, $sand 0%, $orange 100%);
+    }
   }
 }
 

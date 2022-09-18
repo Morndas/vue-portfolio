@@ -1,5 +1,5 @@
 <template>
-  <ContentLayout :position="this.position">
+  <ContentLayout>
     <template v-slot:main-body>
     </template>
   </ContentLayout>
@@ -10,11 +10,6 @@ export default {
   name: 'About',
   metaInfo: {
     title: 'A propos de moi'
-  },
-  data() {
-    return {
-      position: 1
-    }
   }
 }
 </script>

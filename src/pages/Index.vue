@@ -1,5 +1,5 @@
 <template>
-  <ContentLayout :pageSize="2" :position="this.position">
+  <ContentLayout :pageSize="2">
 <!--    <div class="hero container">-->
 <!--      <div class="hero-main">-->
 <!--        <div>-->
@@ -62,7 +62,6 @@ export default {
   },
   data() {
     return {
-      position: 0,
       knownTechs: [
         'Vue.js',
         'React',

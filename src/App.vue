@@ -1,6 +1,6 @@
 <template>
   <MasterLayout>
-    <transition name="fade" mode="out-in">
+    <transition :name="transitionDirection" mode="out-in">
       <router-view />
     </Transition>
   </MasterLayout>
@@ -17,11 +17,29 @@ query {
 
 <script>
 import MasterLayout from "./layouts/Master";
+import { PageOrderMixin } from "./mixins/PageOrderMixin.js"
 
 export default {
   name: 'App',
   components: {
     MasterLayout
+  },
+  mixins: [PageOrderMixin],
+  data() {
+    return {
+      transitionDirection: 'fade-left'
+    }
+  },
+  created() {
+    this.$router.beforeEach((to, from, next) => {
+      const nextPosition = this.getPagePosition(to.path)
+      if (nextPosition > this.pagePosition) {
+        this.transitionDirection = 'fade-left'
+      } else {
+        this.transitionDirection = 'fade-right'
+      }
+      next()
+    });
   },
   metaInfo() {
     return {
@@ -61,36 +79,36 @@ body {
   }
 }
 
-.fade-enter-active,
-.fade-leave-active {
+.fade-left-enter-active,
+.fade-left-leave-active {
   transition: all 1s ease;
+  *:not(.body-gradient):not(.sea) {
+    transition: all 1s ease;
+  }
 }
 
-.fade-enter,
-.fade-leave-active {
+.fade-left-enter,
+.fade-left-leave-active {
   opacity: 0;
-  transform: translateX(20px);
+  *:not(.body-gradient):not(.sea) {
+    transform: translateX(-20px);
+  }
 }
 
-
-
-.slide-fade-enter-active {
-  transition: all 0.7s;
+.fade-right-enter-active,
+.fade-right-leave-active {
+  transition: all 1s ease;
+  *:not(.body-gradient):not(.sea) {
+    transition: all 1s ease;
+  }
 }
 
-.slide-fade-leave-active {
-  transition: all 0.7s;
-}
-
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  transform: translateX(20px);
+.fade-right-enter,
+.fade-right-leave-active {
   opacity: 0;
-}
-
-.slide-fade-leave-from,
-.slide-fade-enter-to {
-  opacity: 0;
+  *:not(.body-gradient):not(.sea) {
+    transform: translateX(20px);
+  }
 }
 
 </style>
