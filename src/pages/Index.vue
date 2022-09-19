@@ -1,19 +1,21 @@
 <template>
   <ContentLayout :pageSize="2">
-<!--    <div class="hero container">-->
-<!--      <div class="hero-main">-->
-<!--        <div>-->
-<!--          {{/* Sébastien Seigneur */}}-->
-<!--          <NameTag tag-name="h1" font-size="50px" />-->
-<!--          <p class="subtitle">Développeur web</p>-->
-<!--        </div>-->
-<!--        <img :src="'/img/code_thinking.svg'" class="code-thinking" />-->
-<!--      </div>-->
-<!--      <div class="hero-arrow" @click="scrollSun">-->
-<!--        <img :src="'/img/down_arrow.svg'" width="69" height="67">-->
-<!--      </div>-->
-<!--    </div>-->
-    <template v-slot:sea-body>
+    <template #main-content>
+      <div class="hero-section">
+        <div class="hero-main container">
+          <div>
+            {{/* Sébastien Seigneur */}}
+            <NameTag tag-name="h1" font-size="50px" />
+            <p class="subtitle">Développeur web</p>
+          </div>
+          <img :src="'/img/code_thinking.svg'" class="code-thinking" />
+        </div>
+        <div class="hero-arrow" @click="scrollSun">
+          <img :src="'/img/down_arrow.svg'" width="69" height="67">
+        </div>
+      </div>
+    </template>
+    <template v-slot:sea-content>
 <!--      <vue-glide-->
 <!--          class="glide-container container"-->
 <!--          :per-view="5"-->
@@ -84,29 +86,42 @@ export default {
 <style lang="scss" scoped>
 @import '~vue-glide-js/dist/vue-glide.css';
 
-.hero {
-  height: 100%;
-  position: absolute;
-  top:0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  display: flex;
-  justify-content: center;
+.hero-section {
+  position: relative;
+  height: calc(100vh - 70px); // 100vh minus the header size
 
   .hero-main {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    height: 90%;
+
+    .subtitle {
+      font-family: Poppins,serif;
+      font-weight: 400;
+      font-size: 30px;
+      margin: 30px 0 0 75px;
+      color: $dark-blue + BF; // 75% transparency
+    }
+
+    .code-thinking {
+      max-width: 100%;
+      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
   }
 
   .hero-arrow {
     position: absolute;
+    inset: auto 0 8%;
+    text-align: center;
     animation: MoveUpDown 2s linear infinite;
-    bottom: 8%;
     cursor: pointer;
   }
 
@@ -117,18 +132,6 @@ export default {
     50% {
       transform: translateY(-15px);
     }
-  }
-
-  .subtitle {
-    font-family: Poppins,serif;
-    font-weight: 400;
-    font-size: 30px;
-    margin: 30px 0 0 75px;
-    color: $dark-blue + BF; // 75% transparency
-  }
-
-  .code-thinking {
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   }
 }
 
