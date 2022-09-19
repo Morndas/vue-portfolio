@@ -13,4 +13,12 @@ export default function (Vue, { router, head, isClient }) {
     name: 'robots',
     content: 'noindex, nofollow'
   })
+
+  router.options.scrollBehavior = function (to, from, savedPosition) {
+    return new Promise((resolve) => {
+      router.app.$root.$once('scrollBeforeEnter', () => {
+        resolve(savedPosition ? savedPosition : {top: 0, behavior: 'smooth'})
+      })
+    })
+  }
 }
