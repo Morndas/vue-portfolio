@@ -100,6 +100,7 @@ export default {
 
 @media (max-width: $mobile-breakpoint) {
   .body-gradient {
+    padding: 0 20px 20px;
     &.size-1 {
       // used unquote to circumvent Sass compile error : 'Incompatible units'
       /* height: unquote("max(72vh, 100%)"); */ // somehow doesn't work, always pick 100%

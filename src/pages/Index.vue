@@ -4,46 +4,70 @@
       <div class="hero-section">
         <div class="hero-main container">
           <div>
-            {{/* Sébastien Seigneur */}}
-            <NameTag tag-name="h1" font-size="50px" />
+            {{ /* Sébastien Seigneur */ }}
+            <NameTag tag-name="h1" font-size="50px"/>
             <p class="subtitle">Développeur web</p>
           </div>
-          <img :src="'/img/code_thinking.svg'" class="code-thinking" />
+          <img :src="'/img/code_thinking.svg'" class="code-thinking"/>
         </div>
-        <div class="hero-arrow" @click="scrollSun">
-          <img :src="'/img/down_arrow.svg'" width="69" height="67">
+        <div class="hero-arrow">
+          <img
+            :src="'/img/down_arrow.svg'"
+            width="69"
+            height="67"
+            @click="scrollBelow"
+          >
+        </div>
+      </div>
+      <div class="presentation-section">
+        <p>
+          Bonjour et bienvenue sur mon site web. Bien qu'il soit encore en développement, sachez que je travaille
+          activement dessus !
+        </p>
+        <div class="example-gallery">
+          <div class="gallery-1">
+            <img src="/img/sun_demo_0.png">
+          </div>
+          <div class="gallery-2">
+            <img src="/img/sun_demo_-1.png">
+            <img src="/img/sun_demo_1.png">
+          </div>
+          <div class="gallery-3">
+            <img src="/img/sun_demo_-2.png">
+            <img src="/img/sun_demo_2.png">
+          </div>
         </div>
       </div>
     </template>
     <template v-slot:sea-content>
-<!--      <vue-glide-->
-<!--          class="glide-container container"-->
-<!--          :per-view="5"-->
-<!--          :options="{-->
-<!--            bound: true,-->
-<!--            peek:{-->
-<!--              before: 0,-->
-<!--              after: 60-->
-<!--            }-->
-<!--          }"-->
-<!--      >-->
-<!--        <vue-glide-slide-->
-<!--            v-for="tech in knownTechs"-->
-<!--            :key="tech"-->
-<!--        >-->
-<!--          <div class="slide-content">-->
-<!--            <img :src="`/img/${tech}_logo.svg`"-->
-<!--                 :alt="`${tech} logo`"-->
-<!--                 class="tech-logo"-->
-<!--                 width="auto"-->
-<!--                 height="85"-->
-<!--            />-->
-<!--            <p class="tech-title">-->
-<!--              {{tech}}-->
-<!--            </p>-->
-<!--          </div>-->
-<!--        </vue-glide-slide>-->
-<!--      </vue-glide>-->
+      <!--      <vue-glide-->
+      <!--          class="glide-container container"-->
+      <!--          :per-view="5"-->
+      <!--          :options="{-->
+      <!--            bound: true,-->
+      <!--            peek:{-->
+      <!--              before: 0,-->
+      <!--              after: 60-->
+      <!--            }-->
+      <!--          }"-->
+      <!--      >-->
+      <!--        <vue-glide-slide-->
+      <!--            v-for="tech in knownTechs"-->
+      <!--            :key="tech"-->
+      <!--        >-->
+      <!--          <div class="slide-content">-->
+      <!--            <img :src="`/img/${tech}_logo.svg`"-->
+      <!--                 :alt="`${tech} logo`"-->
+      <!--                 class="tech-logo"-->
+      <!--                 width="auto"-->
+      <!--                 height="85"-->
+      <!--            />-->
+      <!--            <p class="tech-title">-->
+      <!--              {{tech}}-->
+      <!--            </p>-->
+      <!--          </div>-->
+      <!--        </vue-glide-slide>-->
+      <!--      </vue-glide>-->
     </template>
   </ContentLayout>
 </template>
@@ -75,9 +99,9 @@ export default {
     }
   },
   methods: {
-    scrollSun() {
-      let sun = document.getElementById("sun");
-      sun.scrollIntoView({ behavior: 'smooth' });
+    scrollBelow() {
+      let presSec = document.getElementsByClassName("presentation-section")[0];
+      presSec.scrollIntoView({behavior: 'smooth', block: 'start'});
     }
   }
 }
@@ -104,7 +128,7 @@ export default {
     width: 100%;
 
     .subtitle {
-      font-family: Poppins,serif;
+      font-family: Poppins, serif;
       font-weight: 400;
       font-size: 30px;
       margin: 30px 0 0 75px;
@@ -122,6 +146,7 @@ export default {
     inset: auto 0 8%;
     text-align: center;
     animation: MoveUpDown 2s linear infinite;
+
     img {
       cursor: pointer;
     }
@@ -133,6 +158,53 @@ export default {
     }
     50% {
       transform: translateY(-15px);
+    }
+  }
+}
+
+.presentation-section {
+  max-width: 1300px;
+  margin: auto;
+  padding: 20px;
+  background: #8080804f;
+  border: 1px solid gray;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  scroll-margin-top: $header-size;
+
+  p {
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.5;
+    color: white;
+    text-shadow: 0 0 5px black;
+  }
+
+  .example-gallery {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    > div {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      row-gap: 20px;
+
+      &.gallery-2 {
+        column-gap: 40px
+      }
+
+      &.gallery-3 {
+        column-gap: 140px
+      }
+
+      img {
+        max-width: 100%;
+        max-height: 350px;
+        box-shadow: 0 0 8px #999999;
+      }
     }
   }
 }
@@ -170,7 +242,7 @@ export default {
     }
 
     .tech-title {
-      font-family: Roboto,serif;
+      font-family: Roboto, serif;
       font-size: 18px;
       font-weight: 500;
       color: $dark-blue;

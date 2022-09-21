@@ -1,8 +1,8 @@
 <template>
-  <component :is="tagName"  class="name-ss" :style="fontSizeStyle">
+  <component :is="tagName" class="name-ss" :style="fontSizeStyle">
     <span class="html-tag"><</span>Sébastien<span class="html-tag">></span>
     <br>
-    <span class="html-tag" id="name-indent"><</span>Singnom<span class="html-tag"> /></span>
+    <span class="html-tag" id="name-indent"><</span>Seigneur<span class="html-tag"> /></span>
   </component>
 </template>
 
