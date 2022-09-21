@@ -88,7 +88,7 @@ export default {
 
 .hero-section {
   position: relative;
-  height: calc(100vh - 70px); // 100vh minus the header size
+  height: calc(100vh - #{$header-size}); // 100vh minus the header size
 
   .hero-main {
     position: absolute;
@@ -122,7 +122,9 @@ export default {
     inset: auto 0 8%;
     text-align: center;
     animation: MoveUpDown 2s linear infinite;
-    cursor: pointer;
+    img {
+      cursor: pointer;
+    }
   }
 
   @keyframes MoveUpDown {

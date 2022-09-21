@@ -56,14 +56,15 @@ export default {
 .body-gradient {
   position: relative;
   overflow: hidden auto;
+  height: 100%;
 
   &.size-1 {
-    height: calc(72vh - 70px); // omits the size of the header, the sea part makes for the last 28vh
+    min-height: calc(72vh - #{$header-size}); // omits the size of the header, the sea part makes for the last 28vh
     background: linear-gradient(180deg, $sand 0%, $orange 100%)
   }
 
   &.size-2 {
-    height: calc(172vh - 140px); // omits the size of the header twice
+    min-height: calc(172vh - #{$header-size * 2});
     background: linear-gradient(180deg, $blue 0%, $sand 50%, $orange 100%)
   }
 

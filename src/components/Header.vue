@@ -22,7 +22,7 @@ export default {
 header {
   position: sticky;
   top: 0;
-  height: 70px;
+  height: $header-size;
   width: 100%;
   background-color: #294570;
   z-index: 100;

@@ -5,6 +5,7 @@ $orange: #FFB292;
 $sand: #FFEDCB;
 $sea-gradient-start: 19%;
 $mobile-breakpoint: 576px;
+$header-size: 70px;
 
 :export {
   dark-blue: $dark-blue;
@@ -13,4 +14,5 @@ $mobile-breakpoint: 576px;
   sand: $sand;
   sea-gradient-start: $sea-gradient-start;
   mobile-breakpoint: $mobile-breakpoint;
+  header-size: $header-size;
 }
