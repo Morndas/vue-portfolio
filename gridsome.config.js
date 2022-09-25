@@ -5,8 +5,8 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'Gridsome',
-  siteDescription: 'Site web de Sébastien Seigneur',
+  siteName: 'Sébastien Seigneur',
+  siteDescription: 'Site web de Sébastien Seigneur (meta temporaire)',
   plugins: [],
   css: {
     loaderOptions: {
