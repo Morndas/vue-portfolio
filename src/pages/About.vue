@@ -1,21 +1,21 @@
 <template>
   <ContentLayout>
     <template v-slot:main-content>
-      <div class="about-me PLACEHOLDER">
+      <div class="content-container about-me PLACEHOLDER">
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium amet animi asperiores cum ducimus eaque,
-          inventore itaque iusto maiores, maxime molestias necessitatibus, non pariatur quia rerum soluta suscipit
-          tenetur!
+          ⚠ PAGE EN COURS DE DEVELOPEMENT ⚠
+          <br>
+          <strong>Position : 1</strong>
         </p>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium amet animi asperiores cum ducimus eaque,
-          inventore itaque iusto maiores, maxime molestias necessitatibus, non pariatur quia rerum soluta suscipit
-          tenetur! maxime molestias necessitatibus, non pariatur quia rerum soluta suscipit
-          tenetur!
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.
+          Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.
         </p>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusantium amet animi asperiores cum ducimus eaque,
-          inventore itaque iusto maiores.
+          Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.
+        </p>
+        <p>
+          Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.
         </p>
       </div>
     </template>
@@ -34,15 +34,6 @@ export default {
 <style scoped lang="scss">
 
 .about-me.PLACEHOLDER {
-  text-align: center;
-
-  p {
-    background: rgba(50, 205, 50, 0.88);
-    border: 1px solid black;
-    padding: 30px;
-    max-width: 70%;
-    margin: 20px auto;
-    border-radius: 30px;
-  }
+  margin: 16px auto;
 }
 </style>
