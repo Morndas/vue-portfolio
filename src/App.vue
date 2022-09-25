@@ -62,6 +62,10 @@ export default {
 @import "~@fontsource/poppins/latin.css";
 
 /* Global styles */
+::selection {
+  background: $orange;
+}
+
 body {
   font-family: Roboto, Poppins, Arial, sans-serif !important;
   background-color: black;
