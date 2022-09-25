@@ -2,10 +2,11 @@
   <header>
     <nav>
       <ul>
-        <li><g-link to="/">Home</g-link></li>
-        <li><g-link to="/about/">A propos de moi</g-link></li>
-        <li><g-link href="#">Mes projets</g-link></li>
-        <li><g-link href="#">Contact</g-link></li>
+        <li><g-link to="/">Accueil</g-link></li>
+        <li><g-link to="/about">A propos de moi (🚧)</g-link></li>
+        <li><g-link to="/projects">Mes projets (🚧)</g-link></li>
+        <li><g-link to="/contact">Contact (🚧)</g-link></li>
+        <li><g-link to="/cv">CV (🚧)</g-link></li>
       </ul>
     </nav>
   </header>
@@ -42,7 +43,7 @@ header {
 
     li a {
       display: block;
-      color: #FFEDCB;
+      color: $sand;
       text-align: center;
       padding: 14px 16px;
       text-decoration: none;
