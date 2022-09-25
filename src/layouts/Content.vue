@@ -44,8 +44,8 @@ export default {
     },
     sunStyles() {
       return (this.pagePosition > 0) ?
-        {'padding-right': `${this.pagePosition * 5}%`} :
-        {'padding-left': `${this.pagePosition * 5}%`}
+        {'padding-right': `${this.pagePosition * 10}%`} :
+        {'padding-left': `${Math.abs(this.pagePosition) * 10}%`}
     }
   }
 }
@@ -57,6 +57,7 @@ export default {
   position: relative;
   overflow: hidden auto;
   height: 100%;
+  padding: 0 20px 20px;
 
   &.size-1 {
     min-height: calc(72vh - #{$header-size}); // omits the size of the header, the sea part makes for the last 28vh
@@ -100,7 +101,6 @@ export default {
 
 @media (max-width: $mobile-breakpoint) {
   .body-gradient {
-    padding: 0 20px 20px;
     &.size-1 {
       // used unquote to circumvent Sass compile error : 'Incompatible units'
       /* height: unquote("max(72vh, 100%)"); */ // somehow doesn't work, always pick 100%
