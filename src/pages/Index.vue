@@ -31,8 +31,8 @@
           <p>
             J'ai décidé de créer un site personnel afin d'épater les recruteurs <span class="emoji">😎</span>.
             <br><strong>Portfolio</strong>, <strong>CV en ligne</strong>, mais également une <strong>preuve de compétences</strong> en lui-même,
-            ce projet verra de nombreuses mises à jour prochainement ! Je pensais seulement publier le site une fois terminé,
-            mais même s'il est encore incomplet, j'ai pensé qu'il était dommage de ne pas pouvoir le montrer. Donc le voilà !
+            ce projet verra de nombreuses mises à jour prochainement ! Je comptais seulement publier le site une fois terminé,
+            mais même s'il est encore incomplet, j'ai pensé qu'il était dommage de ne pas pouvoir le montrer.
             Gardez donc bien en tête que certains éléments du site sont encore manquants ou à l'état de prototype.
           </p>
         </div>
@@ -53,11 +53,11 @@
             >
           </div>
           <p>
-            Ayant une certaine aisance avec les technologies front-end telles que la librairie JavaScript <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue.Js</a>,
+            Ayant une certaine aisance avec les technologies front-end telles que la librairie JavaScript <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue.js</a>,
             j'ai privilégié l'utilisation de celle-ci pour le développement de ce projet. Bien que les robots de Google interprètent désormais le JavaScript,
-            j'ai pensé qu'il était plus sage de donner autre chose que du JS et de l'HTML vide aux robots indexeurs des différents moteurs de recherche.
+            j'ai conclu qu'il était plus sage de donner autre chose que du JS et un squelette HTML vide aux robots indexeurs des différents moteurs de recherche.
             C'est pourquoi j'ai opté pour le framework <a href="https://gridsome.org/" target="_blank" rel="noopener">Gridsome</a>.
-            Nuxt.Js étant trop lourd pour un simple portfolio, ce générateur de site statique convenait parfaitement.
+            Nuxt.js étant trop lourd pour un simple portfolio, ce générateur de site statique convenait parfaitement à mes besoins.
           </p>
         </div>
         <h2>Comment fonctionne t-il ?</h2>
