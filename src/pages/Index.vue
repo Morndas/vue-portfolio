@@ -57,7 +57,7 @@
             j'ai privilégié l'utilisation de celle-ci pour le développement de ce projet. Bien que les robots de Google interprètent désormais le JavaScript,
             j'ai conclu qu'il était plus sage de donner autre chose que du JS et un squelette HTML vide aux robots indexeurs des différents moteurs de recherche.
             C'est pourquoi j'ai opté pour le framework <a href="https://gridsome.org/" target="_blank" rel="noopener">Gridsome</a>.
-            Nuxt.js étant trop lourd pour un simple portfolio, ce générateur de site statique convenait parfaitement à mes besoins.
+            Nuxt.js étant trop lourd pour un simple portfolio, ce <strong>générateur de site statique</strong> convenait parfaitement à mes besoins.
           </p>
         </div>
         <h2>Comment fonctionne t-il ?</h2>
