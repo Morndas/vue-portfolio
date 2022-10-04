@@ -242,7 +242,7 @@ export default {
 
   .hero-arrow {
     position: absolute;
-    inset: auto 0 5%;
+    inset: auto 0 8%;
     text-align: center;
     animation: MoveUpDown 2s linear infinite;
 
@@ -268,10 +268,6 @@ export default {
       justify-content: flex-start;
       gap: 15%;
       padding-top: 30%;
-
-      > div {
-        width: 100%;
-      }
 
       // TODO: relocate CSS and refactor NameTag component for better responsiveness for all usages
       /deep/ .name-ss {
