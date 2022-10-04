@@ -34,7 +34,7 @@ export default {
   font-family: Poppins,serif;
   font-weight: 600;
   line-height: 120%;
-  width: 110%;
+  white-space: nowrap;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 
   .html-tag {

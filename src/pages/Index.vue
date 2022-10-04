@@ -242,7 +242,7 @@ export default {
 
   .hero-arrow {
     position: absolute;
-    inset: auto 0 8%;
+    inset: auto 0 5%;
     text-align: center;
     animation: MoveUpDown 2s linear infinite;
 
@@ -257,6 +257,31 @@ export default {
     }
     50% {
       transform: translateY(-15px);
+    }
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    height: 100vh;
+
+    .hero-main {
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 15%;
+      padding-top: 30%;
+
+      > div {
+        width: 100%;
+      }
+
+      // TODO: relocate CSS and refactor NameTag component for better responsiveness for all usages
+      /deep/ .name-ss {
+        font-size: 40px !important;
+      }
+
+      .subtitle {
+        font-size: 20px;
+        margin: 16px 0 0 50px;
+      }
     }
   }
 }
