@@ -24,7 +24,7 @@
       <div class="presentation-section content-container">
         <p>
           Bonjour et bienvenue sur mon site web ! Bien qu'il soit encore en développement, sachez que je travaille
-          activement dessus.
+          activement dessus. Vous pouvez en suivre les changements depuis ce <a href="https://github.com/Morndas/vue-portfolio" target="_blank" rel="noopener">répertoire GitHub</a>.
         </p>
         <h2>Pourquoi ce site ?</h2>
         <div>
